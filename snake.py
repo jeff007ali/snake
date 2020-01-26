@@ -1,5 +1,3 @@
-#Snake Tutorial Python
-
 import math
 import random
 import pygame
