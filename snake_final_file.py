@@ -18,8 +18,11 @@ class cube(object):
 
 
 class snake(object):
+    body = []
+    turns = {}
     def __init__(self, color, pos):
-        pass
+        self.color = color
+        self.
 
     def move(self):
         pass
@@ -35,10 +38,22 @@ class snake(object):
 
 
 def drawGrid(w, rows, surface):
-    pass
+    sizeBtwn = w // rows
+
+    x = 0
+    y = 0 
+    for l in range(rows):
+        x += sizeBtwn
+        y += sizeBtwn
+
+        pygame.draw.line(surface, (255, 255, 255), (x, 0), (x, w))
+        pygame.draw.line(surface, (255, 255, 255), (0, y), (w, y))
 
 def redrawWindow(surface):
-    pass
+    global width, rows
+    surface.fill((0, 0, 0))
+    drawGrid(width, rows, surface)
+    pygame.display.update()
 
 def randomSnack(rows, item):
     pass
@@ -47,7 +62,20 @@ def message_box(subject, content):
     pass
 
 def main():
-    pass
+    global width, rows
+    width = 500
+    rows = 20
+    win = pygame.display.set_mode((width, width))
+    s = snake((255, 0, 0), (10, 10))
+
+    clock = pygame.time.Clock()
+    running = True
+    while running:
+        pygame.time.delay(50)
+        clock.tick(10)
+
+        redrawWindow(win)
+    
 
 
 main()
