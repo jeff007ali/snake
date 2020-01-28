@@ -143,15 +143,26 @@ def randomSnack(rows, item):
     return (x, y)
 
 def message_box(subject, content):
-    pass
+    root = tk.Tk()
+    root.attributes("-topmost", True)
+    root.withdraw()
+    messagebox.showinfo(subject, content)
+    try:
+        root.destroy()
+    except:
+        pass
 
 def main():
     global width, rows, s, snack
     width = 500
     rows = 20
+    pygame.init()
     win = pygame.display.set_mode((width, width))
     s = snake((255, 0, 0), (10, 10))
     snack = cube(randomSnack(rows, s), color=(0, 255, 0))
+
+    # Game over text
+    # over_font = pygame.font.Font("freesansbold.ttf", 32)
 
     clock = pygame.time.Clock()
     running = True
@@ -166,7 +177,9 @@ def main():
         for x in range(len(s.body)):
             if s.body[x].pos in list(map(lambda z: z.pos, s.body[x+1:])):
                 print("Score : {}".format(len(s.body)))
-                message_box()
+                message_box("You lost!", "Play again...")
+                # over_text = over_font.render("GAME OVER", True, (0, 0, 255))
+                # win.blit(over_text, (200, 250))
                 s.reset((10, 10))
                 break
 
