@@ -12,7 +12,6 @@ class cube(object):
         self.dirnx = 1
         self.dirny = 0
         self.color = color
-
         
     def move(self, dirnx, dirny):
         self.dirnx = dirnx
@@ -32,8 +31,6 @@ class cube(object):
             circleMiddle2 = (i*dis + dis -radius*2, j*dis+8)
             pygame.draw.circle(surface, (0,0,0), circleMiddle, radius)
             pygame.draw.circle(surface, (0,0,0), circleMiddle2, radius)
-        
-
 
 
 class snake(object):
@@ -87,7 +84,6 @@ class snake(object):
                 elif c.dirny == 1 and c.pos[1] >= c.rows-1: c.pos = (c.pos[0], 0)
                 elif c.dirny == -1 and c.pos[1] <= 0: c.pos = (c.pos[0],c.rows-1)
                 else: c.move(c.dirnx,c.dirny)
-        
 
     def reset(self, pos):
         self.head = cube(pos)
@@ -96,7 +92,6 @@ class snake(object):
         self.turns = {}
         self.dirnx = 0
         self.dirny = 1
-
 
     def addCube(self):
         tail = self.body[-1]
@@ -113,7 +108,6 @@ class snake(object):
 
         self.body[-1].dirnx = dx
         self.body[-1].dirny = dy
-        
 
     def draw(self, surface):
         for i, c in enumerate(self.body):
