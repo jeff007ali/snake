@@ -44,6 +44,9 @@ class snake(object):
         self.diry = 1
 
     def move(self):
+        # TODO : Write code to handle if snake is moving in left direction 
+        # then it can't start moving right directly and vice versa. Same for up and down also.
+        
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -158,6 +161,7 @@ def main():
     rows = 20
     pygame.init()
     win = pygame.display.set_mode((width, width))
+    pygame.display.set_caption("Snake by @jeff007ali")
     s = snake((255, 0, 0), (10, 10))
     snack = cube(randomSnack(rows, s), color=(0, 255, 0))
 
