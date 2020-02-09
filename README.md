@@ -1,3 +1,3 @@
 Classic Sanke Game 👇 :
 
-![Alt text](output.gif?raw=true "Snake")
+![Alt text](final_output.gif?raw=true "Snake")
